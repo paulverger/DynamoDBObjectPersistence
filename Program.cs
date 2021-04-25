@@ -13,7 +13,7 @@ namespace DynamoDBObjectPersistence
 			// Add an item
 			var client = new AmazonDynamoDBClient();
 			var context = new DynamoDBContext(client);
-			var item = new Item
+			var item = new OldMovie
 			{
 				MovieName = "Breakfast at Tiffany's",
 				Stars = "Audrey Hepburn, George Peppard",
@@ -23,7 +23,7 @@ namespace DynamoDBObjectPersistence
 			context.SaveAsync(item).Wait();
 
 			// Read item
-			Item retrievedItem = context.LoadAsync<Item>("Breakfast at Tiffany's").Result;
+			OldMovie retrievedItem = context.LoadAsync<OldMovie>("Breakfast at Tiffany's").Result;
 			Console.WriteLine("Movie is {0}, made in {1}, starring {2}",
 				retrievedItem.MovieName,
 				retrievedItem.YearMade, 

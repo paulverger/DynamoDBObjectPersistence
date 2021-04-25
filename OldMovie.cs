@@ -7,7 +7,7 @@ using Amazon.DynamoDBv2.DataModel;
 namespace DynamoDBObjectPersistence
 {
 	[DynamoDBTable("OldMovies")]
-	class Item
+	class OldMovie
 	{
 		[DynamoDBHashKey]
 		public string MovieName { get; set; }
